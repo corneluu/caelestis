@@ -1,5 +1,5 @@
 export type Lang = 'RO' | 'EN' | 'IT' | 'LA';
-export type Voice = 'sopran' | 'alto' | 'tenor' | 'bas';
+export type Voice = 'sopran' | 'sopran1' | 'sopran2' | 'alto' | 'tenor' | 'bas';
 
 export interface Song {
   id: string;
@@ -28,7 +28,7 @@ export const songs: Song[] = [
   { id: 'cantec-12', title: 'După Prefacere: Unul Sfânt', composer: '', lang: 'RO', hasScore: true, voices: ['sopran', 'alto', 'tenor', 'bas'] },
   { id: 'cantec-13', title: 'Tatăl nostru', composer: '', lang: 'RO', hasScore: true, voices: ['sopran', 'alto', 'tenor', 'bas'] },
   { id: 'cantec-14', title: 'Agnus dei: Missa Secunda Pontificalis', composer: '', lang: 'LA', hasScore: true, voices: ['sopran', 'alto', 'tenor', 'bas'] },
-  { id: 'cantec-15', title: 'Împărtășanie: Cine se va sui pe Muntele Domnului', composer: 'G. Muzicescu', lang: 'RO', hasScore: true, voices: ['sopran', 'alto', 'tenor', 'bas'] },
-  { id: 'cantec-16', title: 'Doamne, buzele mele', composer: '', lang: 'RO', hasScore: true, voices: ['sopran', 'alto', 'tenor', 'bas'] },
+  { id: 'cantec-15', title: 'Împărtășanie: Cine se va sui pe Muntele Domnului', composer: 'G. Muzicescu', lang: 'RO', hasScore: true, voices: ['sopran1', 'sopran2', 'alto', 'tenor', 'bas'] },
+  { id: 'cantec-16', title: 'Doamne, buzele mele', composer: '', lang: 'RO', hasScore: true, voices: ['sopran1', 'sopran2', 'alto', 'tenor', 'bas'] },
   { id: 'cantec-17', title: 'Final: Aleluia', composer: 'G. F. Händel', lang: 'RO', hasScore: true, voices: ['sopran', 'alto', 'tenor', 'bas'] }
 ];
