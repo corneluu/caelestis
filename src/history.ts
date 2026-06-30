@@ -12,14 +12,18 @@ export interface UpdateHistory {
 }
 
 export const updateHistory: UpdateHistory = {
-  lastUpdate: '14 iunie 2026',
+  lastUpdate: '30 iunie 2026',
   pdfs: [
-    { 
-      name: 'Eu te iubesc, Doamne', 
-      url: 'pdfs/cantec-13/partitura.pdf', 
-      date: '9 mai 2026', 
-      change: 'Partitură actualizată' 
-    }
+    { name: 'În fața ta, Doamne, ne adunăm', url: 'pdfs/cantec-1/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'Intrare: Măriți pe Domnul', url: 'pdfs/cantec-5/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'Ecce sacerdos magnus', url: 'pdfs/cantec-6/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'Kyrie: Missa Încoronării', url: 'pdfs/cantec-7/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'Aleluia', url: 'pdfs/cantec-9/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'Ofertoriu: Tota Pulchra', url: 'pdfs/cantec-10/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'Sanctus', url: 'pdfs/cantec-11/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'După Prefacere: Unul Sfânt', url: 'pdfs/cantec-12/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'Agnus dei: Missa Secunda Pontificalis', url: 'pdfs/cantec-14/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
+    { name: 'Final: Aleluia', url: 'pdfs/cantec-17/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' }
   ],
   audio: [
     { name: 'În fața ta, Doamne, ne adunăm (Bas)', url: 'audio/cantec-1/bas.mp3', date: '14 iunie 2026', change: 'Audio actualizat' },
