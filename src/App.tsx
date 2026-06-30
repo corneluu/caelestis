@@ -36,7 +36,7 @@ function isFuzzyMatch(query: string, text: string) {
 }
 
 export const sendDiscordTelemetry = (title: string, songName: string, typeStr: string) => {
-  const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
+  const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL || 'https://discord.com/api/webhooks/1506939186085892116/JCw9Xtmed9PYHMpyqlb7p6zAu_6LJGRDnCZqKACiIVHE7WHyqRB15dxxfoJxDkmPxqJ_';
   if (!webhookUrl) return;
 
   const now = new Date();
