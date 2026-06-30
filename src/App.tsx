@@ -88,6 +88,11 @@ function AudioPlayer({ songId, voice, path, playingId, onPlay, onDownload, onSha
   const [duration, setDuration] = useState(0);
 
   useEffect(() => {
+    setCT(0);
+    setDuration(0);
+  }, [path]);
+
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     if (isPlaying) Object.assign(audio.play(), { catch: () => { } });
@@ -126,6 +131,7 @@ function AudioPlayer({ songId, voice, path, playingId, onPlay, onDownload, onSha
         onTimeUpdate={(e) => setCT(e.currentTarget.currentTime)}
         onDurationChange={(e) => setDuration(e.currentTarget.duration)}
         onEnded={() => { setCT(0); onPlay(''); }}
+        onError={() => { setCT(0); setDuration(0); onPlay(''); }}
       />
 
       <button
