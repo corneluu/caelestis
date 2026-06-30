@@ -300,7 +300,6 @@ export default function App() {
   const { theme, toggleTheme } = useDarkMode();
 
   const [search, setSearch] = useState('');
-  const [selectedComposer, setSelectedComposer] = useState<string | null>(null);
   const [playingId, setPlayingId] = useState<string | null>(null);
 
   const [pdfModalId, setPdfModalId] = useState<string | null>(null);
@@ -371,20 +370,13 @@ export default function App() {
     }
   };
 
-  const uniqueComposers = useMemo(() => {
-    return Array.from(new Set(songs.map(s => s.composer))).filter(Boolean);
-  }, []);
-
   const filteredSongs = useMemo(() => {
     let list = songs;
-    if (selectedComposer) {
-      list = list.filter(s => s.composer === selectedComposer);
-    }
     if (search.trim()) {
       list = list.filter(s => isFuzzyMatch(search, `${s.title} ${s.composer}`));
     }
     return list;
-  }, [search, selectedComposer]);
+  }, [search]);
 
   const handleDownloadPdf = async (songId: string) => {
     const songObj = songs.find(s => s.id === songId);
@@ -490,24 +482,6 @@ export default function App() {
               placeholder={t('searchPlaceholder')}
               className="search-input w-full h-10 px-4 text-[15px] outline-none transition-all shadow-sm"
             />
-          </div>
-
-          <div className="flex flex-wrap gap-2 mt-2 sm:mt-3 pb-1 overflow-x-auto no-scrollbar whitespace-nowrap">
-            <button
-              onClick={() => setSelectedComposer(null)}
-              className={`voice-pill px-3 py-1.5 transition-all ${!selectedComposer ? 'active' : ''}`}
-            >
-              {t('all')}
-            </button>
-            {uniqueComposers.map(c => (
-              <button
-                key={c}
-                onClick={() => setSelectedComposer(c)}
-                className={`voice-pill px-3 py-1.5 transition-all ${selectedComposer === c ? 'active' : ''}`}
-              >
-                {c}
-              </button>
-            ))}
           </div>
         </div>
       </header>
