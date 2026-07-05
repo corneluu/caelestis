@@ -12,7 +12,7 @@ export interface UpdateHistory {
 }
 
 export const updateHistory: UpdateHistory = {
-  lastUpdate: '30 iunie 2026',
+  lastUpdate: '5 iulie 2026',
   pdfs: [
     { name: 'În fața ta, Doamne, ne adunăm', url: 'pdfs/cantec-1/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
     { name: 'Intrare: Măriți pe Domnul', url: 'pdfs/cantec-5/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' },
@@ -26,6 +26,7 @@ export const updateHistory: UpdateHistory = {
     { name: 'Final: Aleluia', url: 'pdfs/cantec-17/partitura.pdf', date: '30 iunie 2026', change: 'Partitură nouă' }
   ],
   audio: [
+    { name: 'Final: Aleluia (Negativ)', url: 'audio/cantec-17/negativ.mp3', date: '5 iulie 2026', change: 'Audio adăugat' },
     { name: 'În fața ta, Doamne, ne adunăm (Bas)', url: 'audio/cantec-1/bas.mp3', date: '14 iunie 2026', change: 'Audio actualizat' },
     { name: 'Ave Verum (Sopran)', url: 'audio/cantec-2/sopran.mp3', date: '14 iunie 2026', change: 'Audio actualizat' },
     { name: 'Ne-ai dat o pâine îngerească (Alto)', url: 'audio/cantec-3/alto.mp3', date: '14 iunie 2026', change: 'Audio actualizat' },

@@ -226,45 +226,79 @@ function SongItem({ song, playingId, onPlay, lang, onOpenPdf, onOpenAudio, onSha
       </div>
 
       {/* Voice Pills (Tabs) */}
-      <div className="flex flex-wrap gap-2.5 mb-2 px-2">
-        {song.voices.map((v) => {
-          const isActive = activeVoice === v;
-          return (
-            <button
-              key={v}
-              onClick={() => setActiveVoice(v)}
-              className={`voice-pill px-4 py-1.5 transition-all ${isActive ? 'active' : ''}`}
+      <div className="flex flex-wrap items-center gap-2 mb-2 px-2">
+        {/* Voce individuală */}
+        <div className="flex flex-wrap gap-2">
+          {song.voices
+            .filter((v) => v !== 'toate' && v !== 'negativ')
+            .map((v) => {
+              const isActive = activeVoice === v;
+              return (
+                <button
+                  key={v}
+                  onClick={() => setActiveVoice(v)}
+                  className={`voice-pill px-4 py-1.5 transition-all ${isActive ? 'active' : ''}`}
+                >
+                  {t(v)}
+                </button>
+              );
+            })}
+        </div>
+
+        {/* Separator / Divider */}
+        {song.voices.some((v) => v === 'toate' || v === 'negativ') && (
+          <div className="h-5 w-[1px] bg-[var(--border-default)] mx-1" />
+        )}
+
+        {/* Toate / Negativ Segment */}
+        {song.voices.some((v) => v === 'toate' || v === 'negativ') && (
+          <div className="flex flex-wrap gap-2">
+            {song.voices
+              .filter((v) => v === 'toate' || v === 'negativ')
+              .map((v) => {
+                const isActive = activeVoice === v;
+                return (
+                  <button
+                    key={v}
+                    onClick={() => setActiveVoice(v)}
+                    className={`voice-pill px-4 py-1.5 transition-all ${isActive ? 'active' : ''}`}
+                  >
+                    {t(v)}
+                  </button>
+                );
+              })}
+          </div>
+        )}
+
+        {/* Action Buttons */}
+        <div className="flex flex-wrap gap-2 ml-auto">
+          {song.youtubeUrl && (
+            <a
+              href={song.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-all border bg-[#FF0000] text-white border-[#FF0000] hover:bg-red-700 shadow-sm"
+              onClick={() => onTelemetry("▶️ Redare YouTube", song.title, "Video")}
+              title={t('youtube')}
             >
-              {t(v)}
+              <Play size={16} fill="currentColor" />
+              {t('youtube')}
+            </a>
+          )}
+          {song.audioUrl && (
+            <button
+              onClick={() => {
+                onOpenAudio(song.id);
+                onTelemetry("▶️ Deschidere Modal Demo", song.title, "Audio Demo");
+              }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-all border shadow-sm bg-[#1DB954] text-white border-[#1DB954] hover:bg-[#1AA34A]"
+              title="Audio Demo"
+            >
+              <Play size={16} fill="currentColor" />
+              Audio Demo
             </button>
-          );
-        })}
-        {song.youtubeUrl && (
-          <a
-            href={song.youtubeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-all border bg-[#FF0000] text-white border-[#FF0000] hover:bg-red-700 shadow-sm"
-            onClick={() => onTelemetry("▶️ Redare YouTube", song.title, "Video")}
-            title={t('youtube')}
-          >
-            <Play size={16} fill="currentColor" />
-            {t('youtube')}
-          </a>
-        )}
-        {song.audioUrl && (
-          <button
-            onClick={() => {
-              onOpenAudio(song.id);
-              onTelemetry("▶️ Deschidere Modal Demo", song.title, "Audio Demo");
-            }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-all border shadow-sm bg-[#1DB954] text-white border-[#1DB954] hover:bg-[#1AA34A]"
-            title="Audio Demo"
-          >
-            <Play size={16} fill="currentColor" />
-            Audio Demo
-          </button>
-        )}
+          )}
+        </div>
       </div>
 
       <div className="w-full mt-2">
